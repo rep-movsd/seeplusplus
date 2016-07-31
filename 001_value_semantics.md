@@ -31,17 +31,21 @@ In C++, there are two kinds of values : r-values and l-values
 - l-values have a program visible address in memory where they live, and have a lifetime. l-values often have a name, but not always.
 - r-values are temporary things that cease to exist past the expression in which they appear
 
-```int x = 10; // x is l-value, 10 is r-value
+```
+int x = 10; // x is l-value, 10 is r-value
 int arr[10];
-arr[2] = 1; // arr[2] is the l-value```
+arr[2] = 1; // arr[2] is the l-value
+```
 
 The predefined operators for all types work in the same way.
 Aggregate objects like structs are values too.
 
-```struct Point
+```
+struct Point
 {
     int x, y;
-}```
+}
+```
 
 This is treated as a chunk of memory that is >= sizeof(int) * 2
 
@@ -68,14 +72,16 @@ Value semantics means that two names can never refer to the same block of memory
 
 **Value semantics in function calls**
 
-```int fn(int y)
+```
+int fn(int y)
 { 
     y++;
     return y; 
 }
 
 int x = 10;
-int z = fn(x);```
+int z = fn(x);
+```
 
 When fn(x) is called, an independent copy of x is created, and that is the object called y inside of the function.
 
@@ -115,9 +121,11 @@ You can see the extreme application of value semantics in pure functional langua
 
 Some quite famous libraries like OpenCV break this fundamental paradigm of C++ 
 
-```cv::Mat x = somehowCreateMat();
+```
+cv::Mat x = somehowCreateMat();
 cv::Mat y = x;
-// Now x and y refer to the same location in memory```
+// Now x and y refer to the same location in memory
+```
 
 This is a horrible horrible mistake and unless you have some really really great reasons to, you should never make your objects behave like this in C++.
 
