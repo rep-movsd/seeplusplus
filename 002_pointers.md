@@ -65,7 +65,7 @@ An iterator is the generalized version of what a pointer is - just like pointers
     - ForwardIterators support ++
     - BidirectionalIterators support ++ and --
     - RandomAccessIterators support + and -
-    - OutputIterators "advance" when you dereference and write - they have no arithmetic
+    - OutputIterators work like output streams - you can only advance them after writing (dereference)
 
 Every pointer is an iterator.
 
