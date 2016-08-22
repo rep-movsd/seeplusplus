@@ -41,6 +41,8 @@ A proper understanding of this is essential to reading and writing C++ code.
 
 - **The dot and arrow operators** : The right hand side of the dot operator is a symbolic name that only exists at compile time. It does lead to code generation in the sense that the compiler calculates the addresses of member variables by adding a fixed offset, but it is irrelevant to the runtime state of the application. If the standard implements the proposal to allow overloading of this operator, it can lead to an actual function call at runtime. 
   The arrow operator works in a similar fashion to the dot operator, it may involve dynamic polymorphism, since the exact type of the object upon which it is being called can vary at runtime. The dot operator can also act the same way, if we use references. In the cases where the compiler can determine the type of the object at compiletime, extra code is not generated
+
+- ** The & addressof operator ** : During runtime there are no variable names, so the meaning of & being "give me the address of a variable" is meaningless. But it still has the meaning "give me the address of this l-value". Obviously r-values may or may not be actually present in actual memory, whilst l-values always can be assumed to be in some storage (except if they are optimized away). So & is somewhat of a hybrid operator, tending to be more compiletime than runtime. 
   
 - **constexpr** : constexpr is the new const - A constexpr expression or function is attempted to be evaluated at compile time, and if successful, it becomes a compile time hardcoded value. If the compiler finds that it cannot do the computation at compiletime, it adds a runtime code to do it.
   For example: 
