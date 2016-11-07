@@ -81,6 +81,6 @@ The more stuff you do at compiletime (including code generation via macros or te
 
 For example C++ ```std::sort()``` can always be faster than C ```qsort()``` because ```qsort()``` uses a runtime parameter as the comparision function, and that function is called umpteen zillion times. 
 
-The C++ sort takes a comparision object, which can be a lambda/template/inline function, which inlines its code right within the sort template function. 
+The C++ sort takes a comparison object, which can be a lambda/template/inline function, which inlines its code right within the sort template function. 
 
 No unnecessary function calls.
